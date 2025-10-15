@@ -95,22 +95,20 @@
 \setlength{\parindent}{2cm}
 \frenchspacing
 
-% Estilo do capítulo.
-% Consulte o site:
-%   https://linorg.usp.br/CTAN/info/latex-samples/MemoirChapStyles/
-% para ver outros estilos. O estilo padrão do abnTeX2 é o
-% abnt.
-\chapterstyle{abnt}
+% Espaçamento entre linhas.
+\OnehalfSpacing
 
 % Margem da citação.
 % ATENÇÃO: o valor de \ABNTEXcitacaorecuo definido abaixo é
 % somado ao valor de \leftskip (de 1 cm, aparentemente).
 \setlength{\ABNTEXcitacaorecuo}{4cm}
 
-% O comando abaixo remove a numeração do sumário.
-% ATENÇÃO: aparentemente, o comando só funciona com a opção
-% "oneside"
-\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+% Estilo do capítulo.
+% Consulte o site:
+%   https://linorg.usp.br/CTAN/info/latex-samples/MemoirChapStyles/
+% para ver outros estilos. O estilo padrão do abnTeX2 é o
+% abnt.
+\chapterstyle{abnt}
 
 % Refação do \textual para correta enumeração das páginas.
 \renewcommand{\textual}{
@@ -121,9 +119,6 @@
     \nouppercaseheads
     \bookmarksetup{startatroot}
 }
-
-% Implementações e reimplementações exclusivas da classe.
-\newcommand{\feectex}{feec\TeX~}
 
 % Registro acadêmico (RA).
 \newcommand{\imprimirra}{}
@@ -181,9 +176,7 @@
 \newcommand{\imprimiruniversidade}{}
 \newcommand{\universidade}[1]{\renewcommand{\imprimiruniversidade}{#1}}
 \newcommand{\imprimirfaculdade}{}
-\newcommand{\faculdade}[1]{
-    \renewcommand{\imprimirfaculdade}{#1}
-}
+\newcommand{\faculdade}[1]{\renewcommand{\imprimirfaculdade}{#1}}
 \instituicao{%
     \MakeUppercase{\imprimiruniversidade} \\%
     \imprimirfaculdade%
@@ -229,9 +222,10 @@
 \renewcommand{\imprimircapa}{%
     \begin{capa}
         \begin{center}
+            \SingleSpacing%
             \begin{minipage}{0.1\textwidth}%
                 \centering%
-                \includegraphics[width=1.5cm]{generic/images/unicamp-logotipo}
+                \includegraphics[width=1.5cm]{unicamp-logotipo}
             \end{minipage}%
             \begin{minipage}{0.9\textwidth}%
                 \centering%
@@ -244,9 +238,10 @@
             \ifthenelse{\boolean{autor}}{\imprimirautor}{}
             \vspace{\fill}
 
+            \OnehalfSpacing%
             \begin{minipage}{\espacotitulo}%
                 \centering%
-                {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
+                \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
             \end{minipage}
             \vspace*{\fill}
 
@@ -259,7 +254,7 @@
 
 % Montagem do preâmbulo.
 \preambulo{%
-    \ifthenelse{\boolean{mestrado}}{Dissertação}{}\ifthenelse{\boolean{doutorado}}{Tese}{} apresentada à Faculdade de Engenharia Elétrica e de Computação da Universidade Estadual de Campinas como parte dos requisitos exigidos para obtenção do título de \ifthenelse{\boolean{mestrado}}{Mestre}{}\ifthenelse{\boolean{doutorado}}{Doutor}{} em Engenharia Elétrica, na Área de \imprimirareaconcentracao \ifthenelse{\boolean{cotutela}}{no âmbito do Acordo de Cotutela firmado entre a Unicamp e a \imprimirinstituicaocotutela}.
+    \ifthenelse{\boolean{mestrado}}{Dissertação}{}\ifthenelse{\boolean{doutorado}}{Tese}{} apresentada à Faculdade de Engenharia Elétrica e de Computação da Universidade Estadual de Campinas como parte dos requisitos exigidos para obtenção do título de \ifthenelse{\boolean{mestrado}}{Mestre}{}\ifthenelse{\boolean{doutorado}}{Doutor}{} em Engenharia Elétrica, na Área de \imprimirareaconcentracao \ifthenelse{\boolean{cotutela}}{no âmbito do Acordo de Cotutela firmado entre a Unicamp e a \imprimiruniversidadecotutela}.
 }
 
 \newcommand{\marcar}[1]{
@@ -278,16 +273,18 @@
         }
         \vspace{\fill}
 
+        \OnehalfSpacing%
         \begin{minipage}{\espacotitulo}%
             \centering%
-            {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}%
+            \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
         \end{minipage}
     \end{center}
     \vspace*{\fill}
 
+    \SingleSpacing%
     \begin{flushright}%
-        \begin{minipage}{.55\textwidth}%
-            \ABNTEXchapterfont\textit{\imprimirpreambulo}
+        \begin{minipage}{.50\textwidth}%
+                \ABNTEXchapterfont\textit{\imprimirpreambulo}
         \end{minipage}
     \end{flushright}
     \vspace{1cm}
@@ -305,7 +302,7 @@
         }{}
         \vspace{2cm}
 
-        \begin{minipage}{.45\textwidth}%
+        \begin{minipage}{.475\textwidth}%
             \tiny%
             ESTE TRABALHO CORRESPONDE À VERSÃO FINAL DA \ifthenelse{\boolean{mestrado}}{DISSERTAÇÃO}{}\ifthenelse{\boolean{doutorado}}{TESE}{} DEFENDIDA \ifthenelse{\boolean{autora}}{PELA ALUNA \MakeUppercase{\imprimirautora}}{}\ifthenelse{\boolean{autor}}{PELO ALUNO \MakeUppercase{\imprimirautor}}{}, E ORIENTADA \ifthenelse{\boolean{orientadora}}{PELA \MakeUppercase{\imprimirorientadora}}{}\ifthenelse{\boolean{orientador}}{PELO \MakeUppercase{\imprimirorientador}}{}
         \end{minipage}
@@ -364,36 +361,11 @@
     \begin{folhadeaprovacao}%
         \ABNTEXchapterfont%
         \SingleSpacing%
-        \begin{center}%
-            \textbf{%
-                COMISSÃO JULGADORA - %
-                \ifthenelse{\boolean{mestrado}}{DISSERTAÇÃO DE MESTRADO}{}%
-                \ifthenelse{\boolean{doutorado}}{TESE DE DOUTORADO}{}%
-            }%
-        \end{center}
-        \vspace{2cm}
-
         \begin{flushleft}
-            \textbf{%
-                \ifthenelse{\boolean{autora}}{Candidata: }{}%
-                \ifthenelse{\boolean{autor}}{Candidato: }{}%
-            } \imprimirautor~RA: \imprimirra%
-            \vspace{0.5\onelineskip}%
-
-            \textbf{Data da Defesa:} \datadefesa%
-            \vspace{0.5\onelineskip}%
-
-            \textbf{%
-                Título da %
-                \ifthenelse{\boolean{mestrado}}{Dissertação:}{}%
-                \ifthenelse{\boolean{doutorado}}{Tese:}{}%
-            }~\imprimirtitulo%
-            \vspace{2cm}
-
             \begin{minipage}[c]{\textwidth}%
                 \imprimirbancaexaminadora
             \end{minipage}
-            \vspace{2cm}
+            \vfill
 
             \begin{minipage}{\textwidth}%
                 \fontsize{12.5pt}{14pt}\selectfont{A ata de defesa, com as respectivas assinaturas dos membros da Comissão Julgadora, encontra-se no SIGA (Sistema de Fluxo de Dissertação/Tese) e na Secretaria de Pós-Graduação da Faculdade de Engenharia Elétrica e de Computação.}
@@ -509,8 +481,10 @@
 
 % Sumário.
 \newcommand{\imprimirsumario}{%
-    \pdfbookmark[0]{\contentsname}{toc}
+    \pdfbookmark[0]{\contentsname}{toc}%
+    \pagestyle{empty}   % Remove numeração do sumário
     \tableofcontents*
+    \cleardoublepage
 }
 
 % Estilização dos elementos pós-textuais.
