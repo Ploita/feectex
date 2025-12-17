@@ -73,7 +73,7 @@ Também foram criadas as versões em português para outros comandos. Veja abaix
 
 ## Versões
 
-### s2.0.0 (17/12/2025)
+### v2.0.0 (17/12/2025)
 
 * Release da versão simplificada.
 * Ajuste com base nos últimos apontamentos da secretaria.
