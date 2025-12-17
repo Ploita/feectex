@@ -39,7 +39,7 @@ Preencha, então, o seu nome, o número do seu RA, o título e o nome de sua ori
 | \mesdefesa{&hellip;}                                | Mês em que foi realizada a defesa.                    |
 | \anodefesa{&hellip;}                                | Ano em que foi realizada a defesa.                    |
 | \areaconcentracao{&hellip;}                         | Área de concentração do trabalho.                     |
-| \bancaexaminadora{&hellip;}                         | Títulos e nomes dos componentes da banca examinadora. |
+| \bancaexaminadora{&hellip;}                         | Nomes dos componentes da banca examinadora. |
 | \palavraschave{&hellip;}                            | Palavras-chave (colocadas no resumo.)                 |
 | \keywords{&hellip;}                                 | _Keywords_ (colocadas no _abstract_.)                 |
 | \imprimircapa                                       | Imprime a capa do trabalho.                           |
@@ -73,10 +73,10 @@ Também foram criadas as versões em português para outros comandos. Veja abaix
 
 ## Versões
 
-### s1.0.0 (26/07/2024)
+### s2.0.0 (17/12/2025)
 
 * Release da versão simplificada.
-* Corrige alguns erros gramaticais no arquivo principal.tex.
+* Ajuste com base nos últimos apontamentos da secretaria.
 
 ## Isenção de Responsabilidade
 
